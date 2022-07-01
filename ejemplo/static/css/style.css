@@ -1,0 +1,13 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+p{
+    background-color: peachpuff;
+    color: rebeccapurple;
+    padding: 10px;
+    display: inline;
+}
