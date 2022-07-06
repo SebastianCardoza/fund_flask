@@ -24,8 +24,29 @@ def process():
         'last_name':request.form['last_name'],
         'email':request.form['email']
     }
-    User.save(data)
+    if request.form['type'] == 'create':
+        id = User.save(data)
+    elif request.form['type'] == 'update':
+        id = request.form['id']
+        data['id']=id
+        User.update(data)
+        
+    return redirect(f'/users/{id}')
+
+@app.route('/users/<int:id>')
+def show(id):
+    user = User.get_user(id)
+    return render_template('show.html', user=user)
+
+@app.route('/destroy/<int:id>')
+def destroy(id):
+    User.delete(id)
     return redirect('/')
+
+@app.route('/update/<int:id>')
+def update(id):
+    user = User.get_user(id)
+    return render_template('update.html', user=user)
 
 if __name__=='__main__':
     app.run(debug=True)
