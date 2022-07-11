@@ -12,10 +12,10 @@ class Burger:
 
     @classmethod
     def save(cls,data):
-        query = "INSERT INTO burgers (name,bun,meat,calories,created_at,updated_at) VALUES (%(name)s,%(bun)s,%(meat)s,%(calories)s,NOW(),NOW())"
+        query = "INSERT INTO burgers (name,bun,meat,calories,restaurant_id, created_at,updated_at) VALUES (%(name)s,%(bun)s,%(meat)s,%(calories)s, %(restaurant_id)s,NOW(),NOW())"
         return connectToMySQL('burgers').query_db(query,data)
 
-    @classmethod
+    @classmethod    
     def get_all(cls):
         query = "SELECT * FROM burgers;"
         burgers_from_db =  connectToMySQL('burgers').query_db(query)

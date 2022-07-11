@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Dojos!</title>
+</head>
+<body>
+    <section class="m-5">
+        <div class="row">
+            <div class="col-6">
+                <h1>New Dojo</h1>
+                <form  action="/process" method="post">
+                    <input type="hidden" name="type" value="createdojo">
+                    <div class="py-2">
+                        <label class='pr-2' for="name">Name:</label>
+                        <input type="text" name="name">
+                    </div>
+                    <div class="pl-5">   
+                        <input class="ml-2" type="submit" value="Create">
+                    </div>
+                </form>
+            </div>
+            <div class="col-6">
+                <h1>All Dojos</h1>
+                <ul>
+                    {% for dojo in dojos %}
+                    <li><a href="/dojos/{{dojo.id}}">{{dojo.name}}</a></li>
+                    {% endfor %}
+                </ul>
+                <a href="/ninjas">Add Ninja</a>
+            </div>
+        </div>
+    </section>    
+</body>
+</html>

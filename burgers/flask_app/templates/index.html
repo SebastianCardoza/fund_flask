@@ -29,6 +29,13 @@
             <label for="calories">Calories:</label>
             <input type="number" min="0" name="calories" id="calories" class="form-control">
         </div>
+        <div>
+            <select name="restaurant_id">
+                {% for restaurant in all_restaurants %}
+                <option value={{restaurant.id}}>{{restaurant.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
         <input type="submit" value="Create Burger" class="btn btn-primary btn-outline-dark">
     </form>
 </body>

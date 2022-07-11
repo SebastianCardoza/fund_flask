@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">ç
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Create a Ninja!</title>
+</head>
+<body>
+    <section class="mx-5">
+        <div class="row">
+            <div class="col-6">
+                <h1>New Ninja</h1>
+                <form action="/process" method="post">
+                    <input type="hidden" name="type" value="createninja">
+                    <div class="row my-3">
+                        <label class="col-3" for="dojo_id">Dojo:</label>
+                        <select class="col-2" name="dojo_id">
+                            {% for dojo in dojos %}
+                            <option value={{dojo.id}}>{{dojo.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-3" for="first_name">First Name:</label>
+                        <input class="col-2" type="text" name="first_name">
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-3" for="last_name">Last Name:</label>
+                        <input class="col-2" type="text" name="last_name">
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-3" for="age">Age:</label>
+                        <input class="col-2" type="text" name="age">
+                    </div>
+                    <input class="mb-3" type="submit" value="Create">
+                </form>
+            </div>
+        </div>
+        <a href="/">Home</a>
+    </section>    
+</body>
+</html>
