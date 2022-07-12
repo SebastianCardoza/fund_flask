@@ -1,11 +1,14 @@
 from flask import render_template,redirect,request
 from flask_app.models.burger import Burger
 from flask_app.models.restaurant import Restaurant
+from flask_app.models import topping
 from flask_app import app
 
 @app.route('/')
 def index():
     all_restaurants = Restaurant.get_all()
+    for toping in topping.Topping.get_all():
+        print(toping.name)
     return render_template("index.html", all_restaurants=all_restaurants)
 
 @app.route('/create',methods=['POST'])
