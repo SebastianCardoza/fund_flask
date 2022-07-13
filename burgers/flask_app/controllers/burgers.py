@@ -13,6 +13,8 @@ def index():
 
 @app.route('/create',methods=['POST'])
 def create():
+    if not Burger.validate_burger(request.form):
+        return redirect('/')
     data = {
         "name":request.form['name'],
         "bun": request.form['bun'],

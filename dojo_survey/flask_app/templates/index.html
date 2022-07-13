@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <div class="d-flex justify-content-center pt-4">
+        <div class="p-3 border w-40 ">
+            <form class ='pe-3' action="/process" method="post">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                        <p>{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <h1 class="text-center">Dojo Survey</h1>
+                <div class="row my-3">
+                    <label class='col-6' for="nombre">Your Name:</label>
+                    <input class='col-6' type="text" name="nombre">
+                </div>
+                <div class="row mb-3">
+                    <label class='col-6' for="ubicacion">Dojo Location:</label>
+                    <select class='col-6' name="ubicacion">
+                        <option value="Chicago">Chicago</option>
+                        <option value="Seattle">Seattle</option>
+                        <option value="Burbank">Burbank</option>
+                        <option value="Online">Online</option>
+                    </select>
+                </div>
+                <div class="row mb-3">
+                    <label class='col-6' for="idioma">Favorite Language:</label>
+                    <select class='col-6' name="idioma">
+                        <option value="C#">C#</option>
+                        <option value="Javascript">Javascript</option>
+                        <option value="Python">Python</option>
+                        <option value="HTML">HTML</option>
+                    </select>
+                </div>
+                <label for="comentario">Comment (Optional):</label>
+                <div class="row ps-3 my-2">
+                    <textarea name="comentario" cols="5" rows="5"></textarea>
+                </div>
+                <div class="row ps-3">
+                    <input type="submit">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

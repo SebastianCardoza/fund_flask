@@ -11,6 +11,13 @@
 <body>
     <a href="/burgers">See all burgers</a>
     <form action="/create" method="post" class="p-3 col-4 mx-auto my-5 bg-dark text-light">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         <h2 class="text-center text-primary">Create Burger:</h2>
     
         <div class="form-group">
