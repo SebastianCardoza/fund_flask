@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <section class="m-4">
+        <div class="row justify-content-center">
+            <div class="col-5 mr-5">
+                <h1>Register</h1>
+                <form action="/process" method="post">
+                    {% with messages = get_flashed_messages(category_filter = ['register']) %}
+                        {% if messages %}
+                            {% for message in messages %}
+                            <p>{{message}}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <div class="row">
+                        <input type="hidden" name="type" value="register">
+                        <label class='col-7 mb-2' for="first_name">First Name:</label>
+                        <input class='col-6 ms-2 mb-2' type="text" name="first_name">
+                        <label class='col-7 mb-2' for="last_name">Last Name:</label>
+                        <input class='col-6 ms-2 mb-2' type="text" name="last_name">
+                        <label class='col-7 mb-2' for="email">Email:</label>
+                        <input class='col-6 ms-2 mb-2' type="text" name="email">
+                        <label class='col-7 mb-2' for="password">Password:</label>
+                        <input class='col-6 ms-2 mb-2' type="text" name="password">
+                        <label class='col-7 mb-2' for="confirmation">Confirm Password:</label>
+                        <input class='col-6 ms-2 mb-2' type="text" name="confirmation">
+                        <label class="mb-2" for="has_belt"><input type="checkbox" name="has_belt" value="1"> Has Belt</label>
+                        <label class='col-7 mb-2' for="belt_date">Belt Exam Date:</label>
+                        <input class='col-6 ms-2 mb-2' type="date" name="belt_date">
+                        <label class='col-7 mb-2' for="belt_color">Belt Color:</label>
+                        <label for="orange"><input type="radio" value="orange" name="belt_color">Orange</label>
+                        <label for="red"><input type="radio" value="red" name="belt_color">Red</label>
+                        <label for="black"><input type="radio" value="black" name="belt_color">Black</label>
+                    </div>
+                    <div class="row">
+                        <input class="col-2 mt-2 ms-2" type="submit" value="Register">
+                    </div>
+                </form>
+            </div>
+            <div class="col-5">
+                <h1>Login</h1>
+                <form action="/process" method="post">
+                    {% with messages = get_flashed_messages(category_filter = ['login']) %}
+                        {% if messages %}
+                            {% for message in messages %}
+                            <p>{{message}}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <div class="row">
+                        <input type="hidden" name="type" value="login">
+                        <label class='col-7 mb-2' for="email">Email:</label>
+                        <input class='col-6 ms-2 mb-2' type="text" name="email">
+                        <label class='col-7 mb-2' for="password">Password:</label>
+                        <input class='col-6 ms-2 mb-2' type="text" name="password">
+                    </div>
+                    <div class="row">
+                        <input class="col-2 ms-2" type="submit" value="Login">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>    
+</body>
+</html>
